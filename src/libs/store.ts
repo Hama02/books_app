@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { exampleApi } from "./Services/api";
-import counterReducer from "./Features/counterSlice";
+import { authorsApi } from "./Services/authorsApi";
+import { booksApi } from "./Services/booksApi";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    [exampleApi.reducerPath]: exampleApi.reducer,
+    [booksApi.reducerPath]: booksApi.reducer,
+    [authorsApi.reducerPath]: authorsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(exampleApi.middleware),
+    getDefaultMiddleware().concat(authorsApi.middleware, booksApi.middleware),
 });
 
 setupListeners(store.dispatch);

@@ -1,18 +1,8 @@
+"use client";
 import { cn } from "@/utils/clsx";
 import AuthorCard from "../components/AuthorCard";
-
-const authors = [
-  {
-    id: 1,
-    name: "Clive Cussler",
-    bookCount: 3,
-  },
-  { id: 2, name: "Justin Scott", bookCount: 7 },
-  { id: 3, name: "Author Name 3", bookCount: 2 },
-  { id: 4, name: "Author Name 4", bookCount: 4 },
-  { id: 5, name: "Author Name 5", bookCount: 5 },
-  { id: 6, name: "Author Name 6", bookCount: 2 },
-];
+import { useFetchAuthorsQuery } from "@/libs/Services/authorsApi";
+import { useFetchBooksQuery } from "@/libs/Services/booksApi";
 
 const getGridClass = (index: number) => {
   switch (index) {
@@ -36,10 +26,14 @@ const getGridClass = (index: number) => {
 };
 
 export default function Authors() {
+  const { data: authors, error, isLoading } = useFetchAuthorsQuery();
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading authors</div>;
+
   return (
     <div className="py-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-        {authors.map((author, index) => (
+        {authors?.map((author, index) => (
           <div
             key={index}
             className={cn(
