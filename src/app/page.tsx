@@ -1,3 +1,9 @@
+import DashboardLayout from "./components/dashboard_layout";
+
 export default function Home() {
-  return <div>Hello World</div>;
+  return (
+    <DashboardLayout>
+      <p>Hello Home</p>
+    </DashboardLayout>
+  );
 }
