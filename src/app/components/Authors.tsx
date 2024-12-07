@@ -2,26 +2,22 @@
 import { cn } from "@/utils/clsx";
 import AuthorCard from "../components/AuthorCard";
 import { useFetchAuthorsQuery } from "@/libs/Services/authorsApi";
-import { useFetchBooksQuery } from "@/libs/Services/booksApi";
+import getAuthorColor from "@/utils/authorColors";
 
 const getGridClass = (index: number) => {
   switch (index) {
     case 0:
-      return "col-span-1 sm:col-span-2 bg-[#f2f2eb80]";
+      return "col-span-1 sm:col-span-2";
     case 1:
     case 2:
-      return `h-32 col-span-1 ${
-        index === 1 ? "bg-[#ecebf280]" : index === 2 ? "bg-[#ebf2f280]" : ""
-      }`;
+      return "h-32 col-span-1";
     case 3:
-      return "col-span-1 sm:col-span-2 bg-[#ebf2ee80]";
+      return "col-span-1 sm:col-span-2";
     case 4:
     case 5:
-      return `h-32 col-span-1 ${
-        index === 4 ? "bg-[#f2ebf080]" : index === 5 ? "bg-[#ebeff280]" : ""
-      }`;
+      return "h-32 col-span-1";
     default:
-      return "col-span-1 sm:col-span-2 bg-[#f2f2eb80]";
+      return "col-span-1 sm:col-span-2";
   }
 };
 
@@ -38,7 +34,9 @@ export default function Authors() {
             key={index}
             className={cn(
               getGridClass(index),
-              "rounded-xl border-2 border-[#ECECE3]"
+              `rounded-xl border-2 border-[#ECECE3] bg-[${getAuthorColor(
+                author.name
+              )}]`
             )}
           >
             <AuthorCard

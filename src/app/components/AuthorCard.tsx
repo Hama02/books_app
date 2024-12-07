@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type AuthorCardProps = {
+interface AuthorCardProps {
   id: number;
   name: string;
   bookCount: number;
   imageUrl: string;
-};
+}
 
 const AuthorCard = ({ id, name, bookCount, imageUrl }: AuthorCardProps) => {
   return (
-    <Link href={`/author/${id}`}>
+    <Link href={`/authors/${id}`}>
       <div className="flex items-center h-20 px-4 py-6 w-full">
         <div className="flex-shrink-0">
           <Image

@@ -8,7 +8,10 @@ export const authorsApi = createApi({
     fetchAuthors: builder.query<Author[], void>({
       query: () => "authors",
     }),
+    fetchAuthorById: builder.query<Author, number>({
+      query: (id) => `authors/${id}`,
+    }),
   }),
 });
 
-export const { useFetchAuthorsQuery } = authorsApi;
+export const { useFetchAuthorsQuery, useFetchAuthorByIdQuery } = authorsApi;
