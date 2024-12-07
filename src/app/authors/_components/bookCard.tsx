@@ -15,15 +15,14 @@ const BookCard = ({ title, publishedDate, onClick }: BookCardProps) => {
   );
   return (
     <div
+      style={{ backgroundColor: getAuthorColor(selectedBook?.author || "") }}
       className={cn(
         selectedBook?.title === title ? "border-2 border-blue-500" : "",
-        `flex flex-col mt-4 justify-between h-28 px-4 py-6 lg:w-80 w-72 bg-[${getAuthorColor(
-          selectedBook?.author || ""
-        )}] rounded-xl cursor-pointer`
+        `flex flex-col mt-4 justify-between h-16 md:h-28 px-4  py-2 md:py-6 md:w-80 w-72 rounded-xl cursor-pointer`
       )}
       onClick={onClick}
     >
-      <h3 className="text-xl font-medium text-black ">{title}</h3>
+      <h3 className="text-base md:text-xl font-medium text-black ">{title}</h3>
       <p className="text-sm font-light text-[#3A5959]">
         Published: {publishedDate.split(" ")[0]}
       </p>

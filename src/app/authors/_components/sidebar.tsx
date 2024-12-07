@@ -19,7 +19,7 @@ const SideBar = ({ authorId }: SideBarProps) => {
   if (error) return <div>Error</div>;
 
   return (
-    <div className="w-1/3 pl-32 flex flex-col border-r-2 min-h-screen">
+    <div className="w-full md:w-1/2 xl:w-1/3 xl:pl-20 pl-10 flex flex-col lg:border-r-2 min-h-screen">
       <Link className="py-4 mt-11" href={"/explore"} onClick={handleClearBook}>
         <h2 className="flex items-center cursor-pointer gap-2 text-[#6C6C6C]">
           <svg

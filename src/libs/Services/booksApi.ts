@@ -9,7 +9,7 @@ export const booksApi = createApi({
   endpoints: (builder) => ({
     fetchBooks: builder.query<Book[], string | void>({
       query: () => {
-        const apiKey = "RAuGNZ86tE2ZBcEW9bPd0kXnHvnGMAIZ";
+        const apiKey = process.env.NEXT_PUBLIC_API_KEY;
         if (!apiKey) {
           throw new Error("API key is missing in environment variables.");
         }

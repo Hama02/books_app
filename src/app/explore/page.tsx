@@ -5,7 +5,7 @@ import Authors from "../components/Authors";
 const ExplorePage = () => {
   return (
     <DashboardLayout>
-      <div className="py-4 mt-11 px-20 xl:px-40 w-full lg:w-4/5">
+      <div className="py-4 mt-11 px-10 md:px-20 xl:px-40 w-full lg:w-4/5">
         <p>
           <b>Explore</b> <span className="font-light">by Authors</span>
         </p>

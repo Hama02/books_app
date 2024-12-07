@@ -32,11 +32,10 @@ export default function Authors() {
         {authors?.map((author, index) => (
           <div
             key={index}
+            style={{ backgroundColor: getAuthorColor(author.name) }}
             className={cn(
               getGridClass(index),
-              `rounded-xl border-2 border-[#ECECE3] bg-[${getAuthorColor(
-                author.name
-              )}]`
+              "rounded-xl border-2 border-[#ECECE3]"
             )}
           >
             <AuthorCard

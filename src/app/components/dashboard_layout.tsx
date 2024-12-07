@@ -6,7 +6,7 @@ export default function DashboardLayout({
   return (
     <div>
       <Sidebar />
-      <main className={"min-h-screen bg-white lg:ml-72"}>{children}</main>
+      <main className={"bg-white lg:ml-72"}>{children}</main>
     </div>
   );
 }
